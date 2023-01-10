@@ -1,10 +1,6 @@
-
-import { useState } from "react";
 import styled from "styled-components";
 
 const Container = (props) => {
-
-
 
     return (
         <>    
@@ -18,7 +14,7 @@ const Container = (props) => {
         <Line></Line>
         <Detail>{props.details.send}</Detail>
         <Line></Line>
-        <LearnButton>learn more</LearnButton>
+        <LearnButton onClick={props.handleClick}>learn more</LearnButton>
     </MainContainer> : <MainContainerActive>
         <TitleActive>{props.details.title}</TitleActive>
         <PriceActive><CurrencyActive>$</CurrencyActive>{!props.isClicked ? props.details.price.monthly : props.details.price.yearly}</PriceActive>
@@ -29,7 +25,7 @@ const Container = (props) => {
         <LineActive></LineActive>
         <DetailActive>{props.details.send}</DetailActive>
         <LineActive></LineActive>
-        <LearnButtonActive>learn more</LearnButtonActive>
+        <LearnButtonActive onClick={props.handleClick}>learn more</LearnButtonActive>
     </MainContainerActive> }
     </>
     )
@@ -73,11 +69,14 @@ const LearnButton = styled.button`
     line-height: 15.85px;
     letter-spacing: 1.39px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all .3s ease;
     &:hover {
-        background-color: transparent;
+        background: transparent;
         border: 1px solid #6d72de;
         color: #6d72de;
+    }
+    &:active {
+        transform: scale(.98);
     }
     @media (min-width: 375px) {
         width: 288px;
@@ -153,11 +152,14 @@ const LearnButtonActive = styled.button`
     line-height: 15.85px;
     letter-spacing: 1.39px;
     cursor: pointer;
-        transition: all .3s ease;
+    transition: all .3s ease;
     &:hover {
         background-color: transparent;
         border: 1px solid #fff;
         color: #fff;
+    }
+    &:active {
+        transform: scale(.98);
     }
     @media (min-width: 375px) {
         width: 288px;
